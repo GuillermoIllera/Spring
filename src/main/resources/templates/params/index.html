@@ -7,5 +7,9 @@
 <body>
 <!-- 	<h1 th:text="${titulo}></h1> -->
 	<h1>Prueba</h1>
+	<li><a th:href="@{/params/string(texto='Hola Guillermo')}">/params/string?texto=Hola Guillermo</a></li>
+	<li><a th:href="@{/params/string(texto='Que tal Jana')}">/params/string?texto=Hola Guillermo</a></li>
+	<li><a th:href="@{/params/mix-params(saludo='Aupa Guillermo', numero=5)}">/params/mix-params?saludo=Aupa Guillermo&numero=5</a></li>
+	<li><a th:href="@{/params/mix-params-request(saludo='Aupa Guillermo', numero=5)}">/params/mix-params-request?saludo=Aupa Guillermo&numero=5</a></li>
 </body>
 </html>

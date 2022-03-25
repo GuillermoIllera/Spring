@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,9 +16,17 @@ import es.spring.modelo.Usuario;
 @Controller
 @RequestMapping("/app")
 public class controladorIndex {
+	
+	@Value("${texto.indexController.index.titulo}")
+	private String textoIndex;
+	@Value("${texto.indexController.perfil.titulo}")
+	private String textoPerfil;
+	@Value("${texto.indexController.listar.titulo}")
+	private String textoListar;
+	
 	@GetMapping({"/index", "/", "/home"})
 	public String index(Model model) {
-		model.addAttribute("titulo", "Hola Spring Framework");
+		model.addAttribute("titulo", textoIndex);
 		return "index";
 	}
 	
@@ -40,7 +49,7 @@ public class controladorIndex {
 		usuario.setApellido("Illera");
 		usuario.setEmail("g@g.com"); 
 		model.addAttribute("usuario", usuario);
-		model.addAttribute("titulo", "Perfil del usuario: ".concat(usuario.getNombre()));
+		model.addAttribute("titulo", textoPerfil.concat(usuario.getNombre()));
 		return "perfil";
 	}
 	
